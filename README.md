@@ -1,6 +1,6 @@
 # 🍽️ Recipe Saver API
 
-This is a **Node.js** based API server built with **Express.js**. It serves as the backend for a **Recipe Storage and Sharing Application**, where users can store their recipes, view shared recipes, and interact with each other's culinary creations. The server utilizes **Prisma ORM** for efficient database management, interacting with a **PostgreSQL** database hosted on **Supabase**.
+This is a **Node.js** based API server built with **Express.js**. It serves as the backend for a **Recipe Storage and Sharing Application**, where users can store their recipes, view shared recipes, and interact with each other's culinary creations. The server utilizes **Prisma ORM** for efficient database management, interacting with a **PostgreSQL** database hosted on **Supabase**. This project is using **Clean Acrchitecture**(ish) without all the interface and injections but yes it folder distribution
 
 ## 🚀 Features
 - **User Management**: User registration, authentication, and profile management.

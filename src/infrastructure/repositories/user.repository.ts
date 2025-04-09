@@ -1,12 +1,19 @@
-import { User } from "../entities/User";
-import prisma from "./database/prisma";
+import prisma from "../database/prisma";
+import * as dto from "@app/dto/user.dto";
+
+
 
 export class UserRepository {
-	static async findByUsernameAndPassword(username: string, password: string): Promise<User | null> {
+	static async findByUsernameAndPassword(username: string, password: string): Promise<dto.LoginDto | null> {
 		const user = await prisma.user.findUnique({
 			where: {
 				username: username,
 				password: password
+			},
+			select: {
+				id: true,
+				username: true,
+				email: true
 			}
 		});
 
@@ -14,12 +21,11 @@ export class UserRepository {
 			return null;
 		}
 
-		return new User(user.username, user.password, user.email);
+		return new dto.LoginDto(user.username, user.email);
 	}
 
 
-
-	static async register(user: User): Promise<User | null> {
+	static async register(user: dto.RegisterDto): Promise<dto.LoginDto | null> {
 		const existingUser = await prisma.user.findUnique({
 			where: {
 				username: user.username
@@ -27,7 +33,7 @@ export class UserRepository {
 		});
 
 		if (existingUser) {
-			return null; 
+			return null;
 		}
 
 		const newUser = await prisma.user.create({
@@ -38,6 +44,6 @@ export class UserRepository {
 			}
 		});
 
-		return new User(newUser.username, newUser.password, newUser.email);
+		return new dto.LoginDto(newUser.username, newUser.email);
 	}
 }

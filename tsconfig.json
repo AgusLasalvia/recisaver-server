@@ -81,14 +81,16 @@
 		"strict": true,
 		"paths": {
 			"@repositories/*": [
-				"./src/repositories/*"
+				"./src/infrastructure/repositories/*"
 			],
-
 			"@controllers/*": [
 				"./src/controllers/*"
 			],
 			"@services/*": [
-				"./src/services/*"
+				"./src/app/services/*"
+			],
+			"@app/*": [
+				"./src/app/*"
 			],
 			"@middlewares/*": [
 				"./src/middlewares/*"
