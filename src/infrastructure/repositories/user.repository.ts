@@ -1,5 +1,5 @@
 import prisma from "../database/prisma";
-import * as dto from "@app/dto/user.dto";
+import * as dto from "../../app/dto/user.dto";
 
 
 

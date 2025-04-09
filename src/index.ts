@@ -1,10 +1,10 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import { config } from 'dotenv';
 import cors from 'cors';
 
 
-import UserRoutes from './src/routes/user.routes';
-import AuthRoutes from './src/routes/auth.routes';
+import UserRoutes from './routes/user.routes';
+import AuthRoutes from './routes/auth.routes';
 
 
 config();
