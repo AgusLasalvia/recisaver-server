@@ -80,14 +80,21 @@
 		/* Type Checking */
 		"strict": true,
 		"paths": {
-			"@core/*": [
-				"./src/core/*"
+			"@repositories/*": [
+				"./src/repositories/*"
 			],
-			"@infrastructure/*": [
-				"./src/infrastructure/*"
+
+			"@controllers/*": [
+				"./src/controllers/*"
 			],
-			"@application/*": [
-				"./src/application/*"
+			"@services/*": [
+				"./src/services/*"
+			],
+			"@middlewares/*": [
+				"./src/middlewares/*"
+			],
+			"@routes/*": [
+				"./src/routes/*"
 			],
 		}, /* Enable all strict type-checking options. */
 		// "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */

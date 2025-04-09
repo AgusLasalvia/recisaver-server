@@ -20,9 +20,10 @@ model User {
   password  String
   email     String    @unique
 
+  recipes   Recipe[]  // Relación 1:N (un usuario tiene muchas recetas)
   favorites Favorite[]
 
-  @@map("user") // Mapea al nombre original si es en minúscula
+  @@map("user")
 }
 
 model Recipe {
@@ -33,10 +34,12 @@ model Recipe {
   instructions String
   imgUrl       String
 
+  user         User      @relation(fields: [user_id], references: [id]) // Relación con User
   favorites    Favorite[]
 
   @@map("recipe")
 }
+
 
 model Favorite {
   userId Int
