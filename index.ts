@@ -3,16 +3,14 @@ import { config } from 'dotenv';
 import cors from 'cors';
 
 
-import UserRoutes from './routes/user.routes';
-import AuthRoutes from './routes/auth.routes';
+import UserRoutes from './src/routes/user.routes';
+import AuthRoutes from './src/routes/auth.routes';
 
 
 config();
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
-
-
 
 
 // 

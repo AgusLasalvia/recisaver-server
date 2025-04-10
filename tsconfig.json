@@ -79,26 +79,26 @@
 		"forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
 		/* Type Checking */
 		"strict": true,
-		"paths": {
-			"@repositories/*": [
-				"./src/infrastructure/repositories/*"
-			],
-			"@controllers/*": [
-				"./src/controllers/*"
-			],
-			"@services/*": [
-				"./src/app/services/*"
-			],
-			"@app/*": [
-				"./src/app/*"
-			],
-			"@middlewares/*": [
-				"./src/middlewares/*"
-			],
-			"@routes/*": [
-				"./src/routes/*"
-			],
-		}, /* Enable all strict type-checking options. */
+		// "paths": {
+		// 	"@repositories/*": [
+		// 		"./src/infrastructure/repositories/*"
+		// 	],
+		// 	"@controllers/*": [
+		// 		"./src/controllers/*"
+		// 	],
+		// 	"@services/*": [
+		// 		"./src/app/services/*"
+		// 	],
+		// 	"@app/*": [
+		// 		"./src/app/*"
+		// 	],
+		// 	"@middlewares/*": [
+		// 		"./src/middlewares/*"
+		// 	],
+		// 	"@routes/*": [
+		// 		"./src/routes/*"
+		// 	],
+		// }, /* Enable all strict type-checking options. */
 		// "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
 		// "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
 		// "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
@@ -130,5 +130,6 @@
 		"src/**/*.html",
 		"src/**/*.css",
 		"prisma/**/*.prisma",
+		"index.ts",
 	]
 }
