@@ -16,12 +16,7 @@ export class UserRepository {
 				email: true
 			}
 		});
-
-		if (!user) {
-			return null;
-		}
-
-		return new dto.LoginDto(user.username, user.email);
+		return user ? new dto.LoginDto(user.username, user.email) : null;
 	}
 
 

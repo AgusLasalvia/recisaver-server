@@ -1,20 +1,16 @@
 // services/UserService.ts
 import { UserRepository } from "../../infrastructure/repositories/user.repository";
-import { User } from "../../core/entities/User";
+import * as dto from "../../app/dto/user.dto";
 
 export class AuthService {
 
-	static async findByUsernameAndPassword(username: string, password: string) {
+	static async findByUsernameAndPassword(username: string, password: string): Promise<dto.LoginDto | null> {
 		const user = await UserRepository.findByUsernameAndPassword(username, password);
-
-		if (!user) {
-			throw new Error("User not found");
-		}
-		return user;
+		return user != null ? user : null;
 	}
 
 
-	static async register(user: User) {
+	static async register(user: dto.RegisterDto): Promise<dto.LoginDto | null> {
 		const newUser = await UserRepository.register(user);
 		if (!newUser) {
 			throw new Error("User registration failed");

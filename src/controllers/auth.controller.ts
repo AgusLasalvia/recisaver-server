@@ -12,7 +12,7 @@ export class AuthController {
 		console.log(user)
 		user != null
 			? res.status(200).json(user)
-			: res.status(401).json({ message: "Invalid credentials" });
+			: res.status(404).json({ message: "User Not Found" });
 
 	}
 
