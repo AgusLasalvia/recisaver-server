@@ -8,9 +8,8 @@ export class AuthController {
 		const { username, password } = req.body;
 		console.log(username)
 
-
 		const user = await AuthService.findByUsernameAndPassword(username, password);
-
+		console.log(user)
 		user != null
 			? res.status(200).json(user)
 			: res.status(401).json({ message: "Invalid credentials" });
@@ -20,7 +19,6 @@ export class AuthController {
 
 	static async register(req: Request, res: Response) {
 		const { username, password, email } = req.body;
-
 
 		const auxiliar = new User(username, password, email);
 		const user = await AuthService.register(auxiliar);
