@@ -1,4 +1,4 @@
-import { CategoryRepository } from "src/infrastructure/repositories/category.repository";
+import { CategoryRepository } from "../../infrastructure/repositories/category.repository";
 
 export class CategoryService {
 	static async getAllCategories() {
