@@ -13,33 +13,36 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 model User {
-  id        Int       @id @default(autoincrement())
-  username  String    @unique
-  password  String
-  email     String    @unique
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+  email    String @unique
 
-  recipes   Recipe[]  // Relación 1:N (un usuario tiene muchas recetas)
+  recipes   Recipe[] // Relación 1:N (un usuario tiene muchas recetas)
   favorites Favorite[]
 
   @@map("user")
 }
 
 model Recipe {
-  id           Int       @id @default(autoincrement())
+  id           Int    @id @default(autoincrement())
   title        String
   description  String
-  user_id      Int
   instructions String
   imgUrl       String
+  favorites Favorite[]
 
-  user         User      @relation(fields: [user_id], references: [id]) // Relación con User
-  favorites    Favorite[]
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+  
+  categoryId Int
+	category   Category @relation(fields: [categoryId], references: [id])
+
+
 
   @@map("recipe")
 }
-
 
 model Favorite {
   userId Int
@@ -48,7 +51,15 @@ model Favorite {
   user   User   @relation(fields: [userId], references: [id])
   recipe Recipe @relation(fields: [foodId], references: [id])
 
-  @@id([userId, foodId])           // Clave primaria compuesta
-  @@unique([userId, foodId])       // Asegura unicidad
+  @@id([userId, foodId]) // Clave primaria compuesta
+  @@unique([userId, foodId]) // Asegura unicidad
   @@map("favorite")
+}
+
+model Category {
+  id      Int      @id @default(autoincrement())
+  name    String
+  recipes Recipe[]
+
+  @@map("category")
 }
