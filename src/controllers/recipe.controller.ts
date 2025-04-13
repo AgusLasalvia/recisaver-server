@@ -10,6 +10,8 @@ export class RecipeController {
 	static async createRecipe(req: Request, res: Response): Promise<void> {
 		const recipe = req.body;
 		const file = req.file;
+
+		console.log(file)
 	
 		if (!file) {
 			res.status(400).json({ message: 'File is required' });
