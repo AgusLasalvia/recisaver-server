@@ -25,7 +25,7 @@ export class RecipeRepository {
 	static async getRandomRecipes(): Promise<dto.RandomRecipesDto[] | []> {
 		const recipes = await prisma.$queryRaw<dto.RandomRecipesDto[]>(Prisma.sql`
 			SELECT id, title, img_url
-			FROM "Recipe"
+			FROM "recipe"
 			ORDER BY RANDOM()
 			LIMIT 6
 		`);
