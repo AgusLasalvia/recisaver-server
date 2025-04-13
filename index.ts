@@ -6,6 +6,7 @@ import cors from 'cors';
 import UserRoutes from './src/routes/user.routes';
 import AuthRoutes from './src/routes/auth.routes';
 import CategoryRoute from './src/routes/category.routes'
+import RecipeRoute from './src/routes/recipe.routes';
 
 
 config();
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/user', UserRoutes);
 app.use('/auth', AuthRoutes);
 app.use('/category', CategoryRoute);
+app.use('/recipe', RecipeRoute);
 
 app.listen(PORT, () => {
 	console.log("SERVER IS RUNNING");

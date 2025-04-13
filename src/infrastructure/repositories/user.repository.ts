@@ -46,8 +46,6 @@ export class UserRepository {
 			}
 		});
 
-		console.log(newUser)
-
 		return new dto.LoginDto(newUser.username, newUser.email);
 	}
 }
