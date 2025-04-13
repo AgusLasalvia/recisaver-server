@@ -21,9 +21,16 @@ export class UserRepository {
 
 
 	static async register(user: dto.RegisterDto): Promise<dto.LoginDto | null> {
-		const existingUser = await prisma.user.findUnique({
+		const existingUser = await prisma.user.findFirst({
+			select: {
+				username: true,
+				email: true
+			},
 			where: {
-				username: user.username
+				OR: [
+					{ username: user.username },
+					{ email: user.email }
+				]
 			}
 		});
 
@@ -38,6 +45,8 @@ export class UserRepository {
 				email: user.email
 			}
 		});
+
+		console.log(newUser)
 
 		return new dto.LoginDto(newUser.username, newUser.email);
 	}

@@ -1,5 +1,4 @@
 import { AuthService } from "../app/services/auth.service";
-import { User } from "../core/entities/User";
 import { Request, Response } from "express";
 
 export class AuthController {
@@ -17,15 +16,5 @@ export class AuthController {
 	}
 
 
-	static async register(req: Request, res: Response) {
-		const { username, password, email } = req.body;
 
-		const auxiliar = new User(username, password, email);
-		const user = await AuthService.register(auxiliar);
-
-		user != null
-			? res.status(201).json(user)
-			: res.status(400).json({ message: "Error registering user" });
-
-	}
 }

@@ -9,14 +9,4 @@ export class AuthService {
 		return user != null ? user : null;
 	}
 
-
-	static async register(user: dto.RegisterDto): Promise<dto.LoginDto | null> {
-		const newUser = await UserRepository.register(user);
-		if (!newUser) {
-			throw new Error("User registration failed");
-		}
-
-		// Retornamos el usuario registrado
-		return newUser;
-	}
 }
