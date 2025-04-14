@@ -8,15 +8,17 @@ export class RecipeRepository {
 		throw new Error("Method not implemented.");
 	}
 
-	static async create(recipe: dto.CreateRecipeDto): Promise<dto.CreateRecipeDto | null> {
+	static async create(recipe: any): Promise<any | null> {
+
 		const newRecipe = await prisma.recipe.create({
 			data: {
 				title: recipe.title,
 				description: recipe.description,
 				instructions: recipe.instructions,
 				img_url: recipe.img_url,
-				user_id: recipe.user_id,
-				category_id: recipe.category_id,
+				user_id: 1,
+				category_id: Number(recipe.category_id),
+
 			},
 		});
 		return newRecipe;
